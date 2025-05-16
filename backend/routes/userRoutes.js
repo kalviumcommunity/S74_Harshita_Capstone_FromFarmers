@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 
-// POST /api/users
-router.post("/", async (req, res) => {
+// POST /api/users/signup
+router.post("/signup", async (req, res) => {
   const { fullName, email, password } = req.body;
 
   if (!fullName || !email || !password) {

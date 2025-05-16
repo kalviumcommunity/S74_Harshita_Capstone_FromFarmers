@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const FarmerProfile = require("../models/FarmerProfile");
 
-// POST /api/farmer-profiles
-router.post("/", async (req, res) => {
+// POST /api/farmer-profiles/signup
+router.post("/signup", async (req, res) => {
   const { fullName, email, password } = req.body;
 
   if (!fullName || !email || !password) {
