@@ -25,4 +25,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET: Group by ID (MY GROUPS)
+router.get('/:id', async (req, res) => {
+  try {
+    const group = await BulkBuddy.findById(req.params.id);
+    if (!group) return res.status(404).json({ error: 'Group not found' });
+    res.json(group);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;
