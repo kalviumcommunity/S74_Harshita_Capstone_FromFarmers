@@ -15,4 +15,14 @@ router.post('/', async (req, res) => {
   }
 });
 
+// GET: All groups (DISCOVER GROUP)
+router.get('/', async (req, res) => {
+  try {
+    const groups = await BulkBuddy.find();
+    res.json(groups);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;
