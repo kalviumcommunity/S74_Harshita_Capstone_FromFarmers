@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// ✅ PUT: Update BulkBuddy group by ID 
+// PUT: Update BulkBuddy group by ID 
 router.put(
   "/:id",
   [
