@@ -21,7 +21,8 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const groups = await BulkBuddy.find();
-    res.json(groups);
+    res.status(200).json({message:"This is BulkBuddy data",groups});
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -89,5 +90,20 @@ router.put(
     }
   }
 );
+
+
+//  writing Databases for capstone task
+// POST: Create a new group (CREATE GROUP)
+router.post('/write', async (req, res) => {
+  try {
+    const { groupName, description, location, groupImage } = req.body;
+
+    const newGroup = new BulkBuddy({ groupName, description, location, groupImage });
+    const savedGroup = await newGroup.save();
+    res.status(201).json({message:"Data saved successfully",savedGroup});
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
 
 module.exports = router;
