@@ -12,6 +12,9 @@ mongoose
   .catch((err) => console.error("❌ DB connection error:", err));
 
 // Routes
+app.get('/',(req,res)=>{
+  res.send("Welcome to FromFarmers  – Connecting Farmers to Consumers")
+})
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/farmer-profiles", require("./routes/farmerProfileRoutes"));
 app.use("/api/bulkbuddy", require("./routes/bulkBuddyRoutes"));
